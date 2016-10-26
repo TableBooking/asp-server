@@ -29,11 +29,11 @@ namespace TableBooking
 	    public void ConfigureServices(IServiceCollection services)
 	    {
 		    var connection = Configuration.GetConnectionString("DefaultConnection");
-			services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection))
+			services.AddDbContext<UserDbContext>(options => options.UseSqlServer(connection))
 				    .AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(connection));
 
 			services.AddIdentity<IdentityUser, IdentityRole>()
-				.AddEntityFrameworkStores<ApplicationDbContext>();
+				.AddEntityFrameworkStores<UserDbContext>();
 			services.Configure<IdentityOptions>(options =>
 			{
 				// Password settings
@@ -50,13 +50,12 @@ namespace TableBooking
 			});
 
 			services.AddScoped<IUserAccountService, DefaultUserAccountService>();
-
 			services.AddScoped<IRestaurantService, DefaultRestaurantService>();
 
 			services.AddMvc();
 		}
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, UserDbContext context)
         {
             loggerFactory.AddConsole();
 
@@ -73,6 +72,8 @@ namespace TableBooking
 					template: "{controller}/{action}/{id?}",
 					defaults: new { controller = "Home", action = "Index" });
 			});
-		}
+
+	        DbIntializer.Initialize(context);
+        }
     }
 }

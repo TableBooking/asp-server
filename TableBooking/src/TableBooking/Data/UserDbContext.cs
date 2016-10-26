@@ -4,9 +4,9 @@ using TableBooking.Models;
 
 namespace TableBooking.Data
 {
-	public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+	public class UserDbContext : IdentityDbContext<IdentityUser>
 	{
-		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+		public UserDbContext(DbContextOptions<UserDbContext> options)
 			: base(options) 
 		{
 
