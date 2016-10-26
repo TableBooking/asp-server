@@ -6,8 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TableBooking.Data;
-using TableBooking.Models;
 using Microsoft.EntityFrameworkCore;
+using TableBooking.Services.RestaurantService;
+using TableBooking.Services.UserService;
 
 namespace TableBooking
 {
@@ -31,9 +32,8 @@ namespace TableBooking
 			services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection))
 				    .AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(connection));
 
-			services.AddIdentity<User, IdentityRole>()
+			services.AddIdentity<IdentityUser, IdentityRole>()
 				.AddEntityFrameworkStores<ApplicationDbContext>();
-
 			services.Configure<IdentityOptions>(options =>
 			{
 				// Password settings
@@ -43,15 +43,15 @@ namespace TableBooking
 				options.Password.RequireUppercase = true;
 				options.Password.RequireLowercase = false;
 
-				// Lockout settings
-				options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
-				options.Lockout.MaxFailedAccessAttempts = 10;
-
 				// Cookie settings
 				options.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromDays(150);
 				options.Cookies.ApplicationCookie.LoginPath = "/Account/LogIn";
 				options.Cookies.ApplicationCookie.LogoutPath = "/Account/LogOff";
 			});
+
+			services.AddScoped<IUserAccountService, DefaultUserAccountService>();
+
+			services.AddScoped<IRestaurantService, DefaultRestaurantService>();
 
 			services.AddMvc();
 		}
