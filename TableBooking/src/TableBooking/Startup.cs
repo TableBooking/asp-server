@@ -57,7 +57,7 @@ namespace TableBooking
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, UserDbContext context)
         {
-            loggerFactory.AddConsole();
+	        loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
             {
