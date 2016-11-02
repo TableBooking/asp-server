@@ -6,17 +6,17 @@ namespace TableBooking.Services.RestaurantService
 {
     public class DefaultRestaurantService : IRestaurantService
     {
-	    private RestaurantDbContext _context;
+	    private ApplicationDbContext context;
 
-	    public DefaultRestaurantService(RestaurantDbContext context)
+	    public DefaultRestaurantService(ApplicationDbContext context)
 	    {
-		    _context = context;
+		    this.context = context;
 	    }
 
 	    public async Task<bool> RegisterAsync(Restaurant restaurant)
 	    {
-		    _context.Add(restaurant);
-		    await _context.SaveChangesAsync();
+		    context.Add(restaurant);
+		    await context.SaveChangesAsync();
 
 		    return true;
 	    }

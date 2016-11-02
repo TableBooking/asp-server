@@ -5,7 +5,7 @@ namespace TableBooking.Data
 {
     public class DbIntializer
     {
-	    public static void Initialize(UserDbContext context)
+	    public static void Initialize(ApplicationDbContext context)
 		{
 			context.Database.EnsureCreated();
 

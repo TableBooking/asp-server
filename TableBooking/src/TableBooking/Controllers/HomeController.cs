@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TableBooking.Controllers
 {
@@ -9,5 +10,13 @@ namespace TableBooking.Controllers
         {
             return View();
         }
-    }
+
+		// GET: /Home/TestAutorize
+	    [Authorize]
+	    public string TestAutorize()
+	    {
+		    return "Authorized";
+	    }
+
+	}
 }

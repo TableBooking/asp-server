@@ -1,8 +1,6 @@
-﻿@model TableBooking.Models.AccountViewModels.LoginViewModel
+﻿@using System.Threading.Tasks
 
-@{
-    Layout = null;
-}
+@model LoginViewModel
 
 <!DOCTYPE html>
 
@@ -12,7 +10,34 @@
 </head>
 <body>
 <div>
-    <h1>Login</h1>  
+    <section>
+        <form asp-controller="Account" asp-action="Login" method="post">
+            <h1>Test Log In</h1>
+            <hr />
+            <div asp-validation-summary="All"></div>
+
+            <label asp-for="Login"></label>
+            <div>
+                <input asp-for="Login" />
+                <span asp-validation-for="Login"></span>
+            </div>
+
+            <label asp-for="Password"></label>
+            <div>
+                <input asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+            </div>
+
+            <label asp-for="RememberMe">
+                <input asp-for="RememberMe" />
+                @Html.DisplayNameFor(m => m.RememberMe)
+            </label>
+            
+            <div>
+                <button type="submit">Log in</button>
+            </div>
+        </form>
+    </section>
 </div>
 </body>
 </html>

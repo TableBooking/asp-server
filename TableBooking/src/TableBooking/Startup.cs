@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TableBooking.Data;
 using Microsoft.EntityFrameworkCore;
+using TableBooking.Models.User;
 using TableBooking.Services.RestaurantService;
 using TableBooking.Services.UserService;
 
@@ -29,11 +30,10 @@ namespace TableBooking
 	    public void ConfigureServices(IServiceCollection services)
 	    {
 		    var connection = Configuration.GetConnectionString("DefaultConnection");
-			services.AddDbContext<UserDbContext>(options => options.UseSqlServer(connection))
-				    .AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(connection));
+			services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
 
-			services.AddIdentity<IdentityUser, IdentityRole>()
-				.AddEntityFrameworkStores<UserDbContext>();
+			services.AddIdentity<ApplicationUser, IdentityRole>()
+				.AddEntityFrameworkStores<ApplicationDbContext>();
 			services.Configure<IdentityOptions>(options =>
 			{
 				// Password settings
@@ -55,7 +55,7 @@ namespace TableBooking
 			services.AddMvc();
 		}
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, UserDbContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, ApplicationDbContext context)
         {
 	        loggerFactory.AddConsole();
 
