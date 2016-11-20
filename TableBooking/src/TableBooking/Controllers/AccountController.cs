@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using TableBooking.Models;
-using TableBooking.Models.AccountViewModels;
+using TableBooking.Models.RestaurantModels;
+using TableBooking.Models.ViewModels.AccountViewModels;
 using TableBooking.Services.RestaurantService;
 using TableBooking.Services.UserService;
 

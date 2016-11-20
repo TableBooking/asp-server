@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using TableBooking.Models.RestaurantModels;
 
 namespace TableBooking.Models.User
 {
-    public class RestaurantAdministrator : IdentityUser
+    public class RestaurantAdministrator : ApplicationUser
     {
-	    public int RestaurantId { get; set; }
-	    public Restaurant Restaurant { get; set; }
+	    public int? RestaurantId { get; set; }
+	    public virtual Restaurant Restaurant { get; set; }
     }
 }

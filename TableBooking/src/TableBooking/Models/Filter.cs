@@ -1,7 +1,16 @@
 ﻿using System;
+using TableBooking.Models.RestaurantModels;
 
 namespace TableBooking.Models
 {
+	public enum SortArguments
+	{
+		ByName,
+		ByPrice,
+		ByLocation,
+		ByRating	
+	}
+
 	public class Filter
 	{
 		public string Address { private get; set; }
@@ -11,7 +20,7 @@ namespace TableBooking.Models
 		public int? NumPerson { private get; set; }
 		public DateTime? DateTime { private get; set; }
 
-		public bool RestaurantPredicate(Restaurant restaurant)
+		public bool Apply(Restaurant restaurant)
 		{
 			var result = true;
 			result &= restaurant.Location.Contains(Address ?? "");
@@ -20,7 +29,7 @@ namespace TableBooking.Models
 			return result;
 		}
 
-		public bool TablePredicate(Table table)
+		public bool Apply(Table table)
 		{
 			var result = true;
 			if (NumPerson != null)
