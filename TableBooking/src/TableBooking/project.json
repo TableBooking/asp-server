@@ -18,7 +18,11 @@
     "Microsoft.EntityFrameworkCore": "1.0.1",
 
     "Microsoft.Extensions.Configuration.Json": "1.0.0",
-    "Microsoft.Extensions.Logging.Console": "1.0.0"
+    "Microsoft.Extensions.Logging": "1.0.0",
+    "Microsoft.Extensions.Logging.Console": "1.0.0",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0",
+    "Microsoft.Extensions.Logging.TraceSource": "1.0.0",
+    "Microsoft.Extensions.Logging.Filter": "1.0.0"
   },
 
   "tools": {
@@ -49,7 +53,9 @@
   "publishOptions": {
     "include": [
       "wwwroot",
-      "web.config"
+      "Views",
+      "web.config",
+      "appsettings.json"
     ]
   },
 
