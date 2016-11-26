@@ -9,10 +9,11 @@
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
+    "Microsoft.AspNetCore.Http.Extensions": "1.0.0",
 
     "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
     "Microsoft.EntityFrameworkCore.Tools": {
-      "version": "1.0.0-preview2-final",
+      "version": "1.0.0-preview3-final",
       "type": "build"
     },
     "Microsoft.EntityFrameworkCore": "1.0.1",
@@ -53,7 +54,7 @@
   "publishOptions": {
     "include": [
       "wwwroot",
-      "Views",
+      "**/*.cshtml",
       "web.config",
       "appsettings.json"
     ]

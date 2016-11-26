@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TableBooking.Data;
+using TableBooking.Features;
 using TableBooking.Models.User;
 using TableBooking.Models.ViewModels;
 using TableBooking.Services.RestaurantService;
@@ -28,9 +29,7 @@ namespace TableBooking.Controllers
 
 			var restaurant = await restaurantService.GetRestaurantAsync(id.GetValueOrDefault());
 
-			if (restaurant == null) return NotFound();
-
-			return View(restaurant);
+			return restaurant == null ? NotFound() : this.AdaptiveResult(restaurant);
 		}
 
 		// GET: /Restaurant/AdminDetails/
