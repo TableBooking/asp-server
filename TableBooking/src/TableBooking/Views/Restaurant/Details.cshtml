@@ -5,4 +5,10 @@
     ViewData["Title"] = "Restaurant";
 }
 
-<h2>@Html.DisplayNameFor(model => model.Name)</h2>
+<h2>@Model.Name</h2>
+<p>@Html.DisplayNameFor(model => model.Location): @Model.Location</p>
+<p>@Html.DisplayNameFor(model => model.Description): @Model.Description</p>
+<p>@Html.DisplayNameFor(model => model.Rating): @Model.Rating</p>
+<p>@Html.DisplayNameFor(model => model.Cuisine): @Model.Cuisine</p>
+<p>@Html.DisplayNameFor(model => model.PhoneNumber): @Model.PhoneNumber</p>
+<p>@Html.DisplayNameFor(model => model.ImagePath): @Model.ImagePath</p>
