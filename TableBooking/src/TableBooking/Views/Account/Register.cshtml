@@ -3,36 +3,49 @@
 
 @model RegisterViewModel
 
-<section>
-    <form class="form-horizontal">
-        <div class="form-group">
-            <label class="control-label col-md-2" for="email">Login:</label>
-            <div class="col-md-8">
-                <input type="text" class="form-control" id="login" placeholder="Enter login">
+<div class="row">
+    <div class="col-xs-4"></div>
+    <div class="col-xs-8">
+        <form asp-controller="Account" asp-action="Register" method="post">
+
+            <h1>Test Register</h1>
+            <div asp-validation-summary="All"></div>
+
+            <div class="form-group">
+                <label asp-for="Login"></label>
+                <div>
+                    <input asp-for="Login" class="form-control" placeholder="Enter login" />
+                    <span asp-validation-for="Login"></span>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2" for="email">Email:</label>
-            <div class="col-md-8">
-                <input type="email" class="form-control" id="email" placeholder="Enter email">
+
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <div>
+                    <input asp-for="Email" class="form-control" placeholder="Enter email" />
+                    <span asp-validation-for="Email"></span>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2" for="pwd">Password:</label>
-            <div class="col-md-8">
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <div>
+                    <input asp-for="Password" class="form-control" placeholder="Enter password" />
+                    <span asp-validation-for="Password"></span>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2" for="pwd">Confirm password:</label>
-            <div class="col-md-8">
-                <input type="password" class="form-control" id="pwd" placeholder="Confirm password">
+
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <div>
+                    <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password" />
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-default">Log in</button>
+                
+            <div>
+                <button type="submit" class="btn btn-default">Sign in</button>
             </div>
-        </div>
-    </form>
-</section>
+</form>
+    </div>
+</div>

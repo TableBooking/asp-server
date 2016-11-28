@@ -58,6 +58,7 @@ namespace TableBooking
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, ApplicationDbContext context)
         {
 	        loggerFactory.AddConsole();
+            app.UseStaticFiles();
 
             if (env.IsDevelopment())
             {

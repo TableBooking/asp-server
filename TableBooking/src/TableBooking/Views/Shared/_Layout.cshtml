@@ -3,7 +3,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
-          asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+    <link href="~/css/table-booking.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width" />
     <title>@ViewData["Title"] - Table Booking</title>
 </head>
@@ -24,20 +25,15 @@
             </ul>
         </div>
     </nav>
-    <div>
+    <div class="container-fluid">
         @RenderBody()
     </div>
 
-    <footer>
-        <p>Posted by: Hege Refsnes</p>
-        <p>
-            Contact information: <a href="mailto:someone@example.com">
-                someone@example.com
-            </a>.
-        </p>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">Place sticky footer content here.</p>
+        </div>
     </footer>
-
-
 
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
             asp-fallback-test="window.jQuery">

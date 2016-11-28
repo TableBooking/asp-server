@@ -1,0 +1,38 @@
+﻿@using TableBooking.Models.ViewModels
+@model ICollection<TableViewModel>
+
+@{
+    ViewData["Title"] = "Table";
+}
+
+<table>
+    <tr>
+        <thead>Id</thead>
+        <thead>Max people count</thead>
+        <thead>Schedule</thead>
+    </tr>
+    @foreach (var table in Model)
+    {
+        <tr>
+            <td>
+                @table.TableId
+            </td>
+            <td>
+                @table.MaxPerson
+            </td>
+            <td>
+                <table>
+                    @foreach (var timePeriod in table.Schedule)
+                    {
+                        <tr>
+                            <td>@timePeriod.Start.Date.ToString()</td>
+                            <td>@timePeriod.Start.ToLocalTime().ToString()</td>
+                            <td>@timePeriod.End.ToLocalTime().ToString()</td>
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>
+    }
+</table>
+

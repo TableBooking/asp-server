@@ -1,0 +1,33 @@
+﻿/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  /*background: url(../images/id_141450.jpg) no-repeat center center fixed;*/ 
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+input, select, textarea {
+    max-width: 280px;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #228b22;
+    border-color: #204d74;
+}
+
+.btn {
+    color: white;
+    background-color: rgb(12, 88, 90);
+}
